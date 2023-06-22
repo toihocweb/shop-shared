@@ -52,7 +52,7 @@ export declare class OtpLoginDto {
     email?: string;
 }
 export declare class AuthPayloadResponse {
-    id: number;
+    id: string;
     username: string;
     email: string;
     permissions: Permission[];
