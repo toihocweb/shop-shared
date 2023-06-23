@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LoginSchema = exports.OtpLoginSchema = exports.ChangePasswordSchema = exports.CreateUserDtoSchema = exports.AuthPayloadResponse = exports.OtpSchema = exports.OtpResponse = exports.VerifyOtpSchema = exports.AuthResponse = exports.ResetPasswordSchema = exports.VerifyForgetPasswordSchema = exports.ForgetPasswordSchema = exports.SocialLoginSchema = exports.Permission = exports.AuthSchema = void 0;
+exports.LoginSchema = exports.OtpLoginSchema = exports.ChangePasswordSchema = exports.CreateUserSchema = exports.AuthPayloadResponse = exports.OtpSchema = exports.OtpResponse = exports.VerifyOtpSchema = exports.AuthResponse = exports.ResetPasswordSchema = exports.VerifyForgetPasswordSchema = exports.ForgetPasswordSchema = exports.SocialLoginSchema = exports.Permission = exports.AuthSchema = void 0;
 const zod_1 = require("zod");
 exports.AuthSchema = zod_1.z.object({
     username: zod_1.z.string().min(3),
@@ -55,7 +55,7 @@ exports.OtpSchema = exports.AuthSchema.pick({
 class AuthPayloadResponse {
 }
 exports.AuthPayloadResponse = AuthPayloadResponse;
-exports.CreateUserDtoSchema = exports.AuthSchema.pick({
+exports.CreateUserSchema = exports.AuthSchema.pick({
     username: true,
     email: true,
     password: true,

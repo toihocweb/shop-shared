@@ -180,7 +180,7 @@ export declare class AuthPayloadResponse {
     email: string;
     permissions: Permission[];
 }
-export declare const CreateUserDtoSchema: z.ZodObject<Pick<{
+export declare const CreateUserSchema: z.ZodObject<Pick<{
     username: z.ZodString;
     email: z.ZodString;
     password: z.ZodString;
@@ -201,7 +201,7 @@ export declare const CreateUserDtoSchema: z.ZodObject<Pick<{
     email?: string;
     password?: string;
 }>;
-export type CreateUserDto = z.infer<typeof CreateUserDtoSchema>;
+export type CreateUserDto = z.infer<typeof CreateUserSchema>;
 export declare const ChangePasswordSchema: z.ZodObject<Pick<{
     username: z.ZodString;
     email: z.ZodString;
