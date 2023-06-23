@@ -1,2 +1,5 @@
 node_modules
 src/*
+tsconfig.tsbuildinfo
+yarn.lock
+package-lock.json

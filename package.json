@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "git@github.com:toihocweb/shop-shared.git",
   "author": "nhabui",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "zod": "^3.21.4"
+  }
 }
