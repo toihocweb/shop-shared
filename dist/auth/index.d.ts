@@ -12,29 +12,29 @@ export declare const AuthSchema: z.ZodObject<{
     oldPassword: z.ZodString;
     newPassword: z.ZodString;
 }, "strip", z.ZodTypeAny, {
-    username?: string;
-    email?: string;
-    password?: string;
-    token?: string;
-    otp_id?: string;
-    code?: string;
-    phone_number?: string;
-    provider?: string;
-    access_token?: string;
-    oldPassword?: string;
-    newPassword?: string;
+    username: string;
+    email: string;
+    password: string;
+    token: string;
+    otp_id: string;
+    code: string;
+    phone_number: string;
+    provider: string;
+    access_token: string;
+    oldPassword: string;
+    newPassword: string;
 }, {
-    username?: string;
-    email?: string;
-    password?: string;
-    token?: string;
-    otp_id?: string;
-    code?: string;
-    phone_number?: string;
-    provider?: string;
-    access_token?: string;
-    oldPassword?: string;
-    newPassword?: string;
+    username: string;
+    email: string;
+    password: string;
+    token: string;
+    otp_id: string;
+    code: string;
+    phone_number: string;
+    provider: string;
+    access_token: string;
+    oldPassword: string;
+    newPassword: string;
 }>;
 export declare enum Permission {
     SUPER_ADMIN = "super_admin",
@@ -55,11 +55,11 @@ export declare const SocialLoginSchema: z.ZodObject<Pick<{
     oldPassword: z.ZodString;
     newPassword: z.ZodString;
 }, "provider" | "access_token">, "strip", z.ZodTypeAny, {
-    provider?: string;
-    access_token?: string;
+    provider: string;
+    access_token: string;
 }, {
-    provider?: string;
-    access_token?: string;
+    provider: string;
+    access_token: string;
 }>;
 export type SocialLoginDto = z.infer<typeof SocialLoginSchema>;
 export declare const ForgetPasswordSchema: z.ZodObject<Pick<{
@@ -75,9 +75,9 @@ export declare const ForgetPasswordSchema: z.ZodObject<Pick<{
     oldPassword: z.ZodString;
     newPassword: z.ZodString;
 }, "email">, "strip", z.ZodTypeAny, {
-    email?: string;
+    email: string;
 }, {
-    email?: string;
+    email: string;
 }>;
 export type ForgetPasswordDto = z.infer<typeof ForgetPasswordSchema>;
 export declare const VerifyForgetPasswordSchema: z.ZodObject<Pick<{
@@ -93,11 +93,11 @@ export declare const VerifyForgetPasswordSchema: z.ZodObject<Pick<{
     oldPassword: z.ZodString;
     newPassword: z.ZodString;
 }, "email" | "token">, "strip", z.ZodTypeAny, {
-    email?: string;
-    token?: string;
+    email: string;
+    token: string;
 }, {
-    email?: string;
-    token?: string;
+    email: string;
+    token: string;
 }>;
 export type VerifyForgetPasswordDto = z.infer<typeof VerifyForgetPasswordSchema>;
 export declare const ResetPasswordSchema: z.ZodObject<Pick<{
@@ -113,13 +113,13 @@ export declare const ResetPasswordSchema: z.ZodObject<Pick<{
     oldPassword: z.ZodString;
     newPassword: z.ZodString;
 }, "email" | "password" | "token">, "strip", z.ZodTypeAny, {
-    email?: string;
-    password?: string;
-    token?: string;
+    email: string;
+    password: string;
+    token: string;
 }, {
-    email?: string;
-    password?: string;
-    token?: string;
+    email: string;
+    password: string;
+    token: string;
 }>;
 export type ResetPasswordDto = z.infer<typeof ResetPasswordSchema>;
 export declare class AuthResponse {
@@ -139,13 +139,13 @@ export declare const VerifyOtpSchema: z.ZodObject<Pick<{
     oldPassword: z.ZodString;
     newPassword: z.ZodString;
 }, "otp_id" | "code" | "phone_number">, "strip", z.ZodTypeAny, {
-    otp_id?: string;
-    code?: string;
-    phone_number?: string;
+    otp_id: string;
+    code: string;
+    phone_number: string;
 }, {
-    otp_id?: string;
-    code?: string;
-    phone_number?: string;
+    otp_id: string;
+    code: string;
+    phone_number: string;
 }>;
 export type VerifyOtpDto = z.infer<typeof VerifyOtpSchema>;
 export declare class OtpResponse {
@@ -169,9 +169,9 @@ export declare const OtpSchema: z.ZodObject<Pick<{
     oldPassword: z.ZodString;
     newPassword: z.ZodString;
 }, "phone_number">, "strip", z.ZodTypeAny, {
-    phone_number?: string;
+    phone_number: string;
 }, {
-    phone_number?: string;
+    phone_number: string;
 }>;
 export type OtpDto = z.infer<typeof OtpSchema>;
 export declare class AuthPayloadResponse {
@@ -193,13 +193,13 @@ export declare const CreateUserSchema: z.ZodObject<Pick<{
     oldPassword: z.ZodString;
     newPassword: z.ZodString;
 }, "username" | "email" | "password">, "strip", z.ZodTypeAny, {
-    username?: string;
-    email?: string;
-    password?: string;
+    username: string;
+    email: string;
+    password: string;
 }, {
-    username?: string;
-    email?: string;
-    password?: string;
+    username: string;
+    email: string;
+    password: string;
 }>;
 export type CreateUserDto = z.infer<typeof CreateUserSchema>;
 export declare const ChangePasswordSchema: z.ZodObject<Pick<{
@@ -215,11 +215,11 @@ export declare const ChangePasswordSchema: z.ZodObject<Pick<{
     oldPassword: z.ZodString;
     newPassword: z.ZodString;
 }, "oldPassword" | "newPassword">, "strip", z.ZodTypeAny, {
-    oldPassword?: string;
-    newPassword?: string;
+    oldPassword: string;
+    newPassword: string;
 }, {
-    oldPassword?: string;
-    newPassword?: string;
+    oldPassword: string;
+    newPassword: string;
 }>;
 export type ChangePasswordDto = z.infer<typeof ChangePasswordSchema>;
 export declare const OtpLoginSchema: z.ZodObject<{
@@ -229,17 +229,17 @@ export declare const OtpLoginSchema: z.ZodObject<{
     name: z.ZodOptional<z.ZodString>;
     email: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
-    otp_id?: string;
-    code?: string;
-    phone_number?: string;
-    name?: string;
-    email?: string;
+    otp_id: string;
+    code: string;
+    phone_number: string;
+    name?: string | undefined;
+    email?: string | undefined;
 }, {
-    otp_id?: string;
-    code?: string;
-    phone_number?: string;
-    name?: string;
-    email?: string;
+    otp_id: string;
+    code: string;
+    phone_number: string;
+    name?: string | undefined;
+    email?: string | undefined;
 }>;
 export type OtpLoginDto = z.infer<typeof OtpLoginSchema>;
 export declare const LoginSchema: z.ZodObject<Pick<{
@@ -255,10 +255,10 @@ export declare const LoginSchema: z.ZodObject<Pick<{
     oldPassword: z.ZodString;
     newPassword: z.ZodString;
 }, "email" | "password">, "strip", z.ZodTypeAny, {
-    email?: string;
-    password?: string;
+    email: string;
+    password: string;
 }, {
-    email?: string;
-    password?: string;
+    email: string;
+    password: string;
 }>;
 export type LoginDto = z.infer<typeof LoginSchema>;

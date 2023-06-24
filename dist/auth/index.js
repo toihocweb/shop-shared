@@ -3,17 +3,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoginSchema = exports.OtpLoginSchema = exports.ChangePasswordSchema = exports.CreateUserSchema = exports.AuthPayloadResponse = exports.OtpSchema = exports.OtpResponse = exports.VerifyOtpSchema = exports.AuthResponse = exports.ResetPasswordSchema = exports.VerifyForgetPasswordSchema = exports.ForgetPasswordSchema = exports.SocialLoginSchema = exports.Permission = exports.AuthSchema = void 0;
 const zod_1 = require("zod");
 exports.AuthSchema = zod_1.z.object({
-    username: zod_1.z.string().min(3),
-    email: zod_1.z.string().email(),
-    password: zod_1.z.string().min(6),
-    token: zod_1.z.string(),
-    otp_id: zod_1.z.string(),
-    code: zod_1.z.string(),
-    phone_number: zod_1.z.string(),
-    provider: zod_1.z.string(),
-    access_token: zod_1.z.string(),
-    oldPassword: zod_1.z.string(),
-    newPassword: zod_1.z.string(),
+    username: zod_1.z.string().min(3).nonempty(),
+    email: zod_1.z.string().email().nonempty(),
+    password: zod_1.z.string().min(6).nonempty(),
+    token: zod_1.z.string().nonempty(),
+    otp_id: zod_1.z.string().nonempty(),
+    code: zod_1.z.string().nonempty(),
+    phone_number: zod_1.z.string().nonempty(),
+    provider: zod_1.z.string().nonempty(),
+    access_token: zod_1.z.string().nonempty(),
+    oldPassword: zod_1.z.string().min(6).nonempty(),
+    newPassword: zod_1.z.string().min(6).nonempty(),
 });
 var Permission;
 (function (Permission) {
