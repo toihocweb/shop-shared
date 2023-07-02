@@ -4,7 +4,7 @@ declare const AttachmentField: {
     readonly COVER: "cover";
 };
 export type AttachmentField = (typeof AttachmentField)[keyof typeof AttachmentField];
-export declare const AttachmentShema: z.ZodObject<{
+export declare const AttachmentSchema: z.ZodObject<{
     attachment: z.ZodAny;
     field: z.ZodNativeEnum<{
         readonly AVATAR: "avatar";
