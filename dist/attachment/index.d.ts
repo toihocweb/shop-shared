@@ -1,5 +1,5 @@
 import { z } from "zod";
-declare const AttachmentFieldEnum: {
+export declare const AttachmentFieldEnum: {
     readonly USER_AVATAR: "user.avatar";
     readonly CATEGORY_IMAGE: "category.image";
     readonly TYPE_IMAGE: "type.image";
@@ -33,4 +33,3 @@ export declare const AttachmentSchema: z.ZodObject<{
     field: "user.avatar" | "category.image" | "type.image" | "banner.image" | "promotion.slider" | "menu.image" | "cover.image" | "tag.image" | "product.image" | "product.gallery";
     attachment?: any;
 }>;
-export {};

@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AttachmentSchema = void 0;
+exports.AttachmentSchema = exports.AttachmentFieldEnum = void 0;
 const zod_1 = require("zod");
-const AttachmentFieldEnum = {
+exports.AttachmentFieldEnum = {
     USER_AVATAR: "user.avatar",
     CATEGORY_IMAGE: "category.image",
     TYPE_IMAGE: "type.image",
@@ -16,6 +16,6 @@ const AttachmentFieldEnum = {
 };
 exports.AttachmentSchema = zod_1.z.object({
     attachment: zod_1.z.any(),
-    field: zod_1.z.nativeEnum(AttachmentFieldEnum),
+    field: zod_1.z.nativeEnum(exports.AttachmentFieldEnum),
 });
 //# sourceMappingURL=index.js.map
