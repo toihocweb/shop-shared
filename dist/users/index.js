@@ -1,12 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserProfileSchema = void 0;
+exports.UpdateProfileSchema = void 0;
 const zod_1 = require("zod");
-exports.UserProfileSchema = zod_1.z.object({
-    avatar: zod_1.z.string(),
-    bio: zod_1.z.string(),
-    socials: zod_1.z.string(),
-    contact: zod_1.z.string(),
-    connect: zod_1.z.number(),
+exports.UpdateProfileSchema = zod_1.z.object({
+    bio: zod_1.z.string().optional(),
+    username: zod_1.z.string().min(3).nonempty(),
+    socials: zod_1.z
+        .array(zod_1.z.object({
+        type: zod_1.z.string().optional(),
+        link: zod_1.z.string().optional(),
+    }))
+        .optional(),
+    contact: zod_1.z.string().optional(),
 });
 //# sourceMappingURL=index.js.map
