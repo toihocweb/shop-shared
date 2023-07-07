@@ -498,3 +498,4 @@ export type PaymentInfoDto = z.infer<typeof PaymentInfoSchema>;
 export type ShopAddressDto = z.infer<typeof ShopAddressSchema>;
 export type ShopSocialDto = z.infer<typeof ShopSocialSchema>;
 export type ShopLocationDto = z.infer<typeof ShopLocationSchema>;
+export type ShopSettingsDto = z.infer<typeof ShopSettingsSchema>;
