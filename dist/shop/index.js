@@ -31,7 +31,7 @@ exports.ShopLocationSchema = zod_1.z.object({
 exports.ShopSettingsSchema = zod_1.z.object({
     website: zod_1.z.string().optional(),
     contact: zod_1.z.string().optional(),
-    socials: exports.ShopSocialSchema.optional(),
+    socials: zod_1.z.array(exports.ShopSocialSchema).optional(),
     location: exports.ShopLocationSchema.optional(),
 });
 exports.CreateShopSchema = zod_1.z.object({

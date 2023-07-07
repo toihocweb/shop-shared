@@ -72,7 +72,7 @@ export declare const ShopLocationSchema: z.ZodObject<{
 export declare const ShopSettingsSchema: z.ZodObject<{
     website: z.ZodOptional<z.ZodString>;
     contact: z.ZodOptional<z.ZodString>;
-    socials: z.ZodOptional<z.ZodObject<{
+    socials: z.ZodOptional<z.ZodArray<z.ZodObject<{
         icon: z.ZodString;
         url: z.ZodString;
     }, "strip", z.ZodTypeAny, {
@@ -81,7 +81,7 @@ export declare const ShopSettingsSchema: z.ZodObject<{
     }, {
         icon: string;
         url: string;
-    }>>;
+    }>, "many">>;
     location: z.ZodOptional<z.ZodObject<{
         lat: z.ZodOptional<z.ZodNumber>;
         lng: z.ZodOptional<z.ZodNumber>;
@@ -113,7 +113,7 @@ export declare const ShopSettingsSchema: z.ZodObject<{
     socials?: {
         icon: string;
         url: string;
-    } | undefined;
+    }[] | undefined;
     location?: {
         lat?: number | undefined;
         lng?: number | undefined;
@@ -129,7 +129,7 @@ export declare const ShopSettingsSchema: z.ZodObject<{
     socials?: {
         icon: string;
         url: string;
-    } | undefined;
+    }[] | undefined;
     location?: {
         lat?: number | undefined;
         lng?: number | undefined;
@@ -181,7 +181,7 @@ export declare const CreateShopSchema: z.ZodObject<{
     settings: z.ZodOptional<z.ZodObject<{
         website: z.ZodOptional<z.ZodString>;
         contact: z.ZodOptional<z.ZodString>;
-        socials: z.ZodOptional<z.ZodObject<{
+        socials: z.ZodOptional<z.ZodArray<z.ZodObject<{
             icon: z.ZodString;
             url: z.ZodString;
         }, "strip", z.ZodTypeAny, {
@@ -190,7 +190,7 @@ export declare const CreateShopSchema: z.ZodObject<{
         }, {
             icon: string;
             url: string;
-        }>>;
+        }>, "many">>;
         location: z.ZodOptional<z.ZodObject<{
             lat: z.ZodOptional<z.ZodNumber>;
             lng: z.ZodOptional<z.ZodNumber>;
@@ -222,7 +222,7 @@ export declare const CreateShopSchema: z.ZodObject<{
         socials?: {
             icon: string;
             url: string;
-        } | undefined;
+        }[] | undefined;
         location?: {
             lat?: number | undefined;
             lng?: number | undefined;
@@ -238,7 +238,7 @@ export declare const CreateShopSchema: z.ZodObject<{
         socials?: {
             icon: string;
             url: string;
-        } | undefined;
+        }[] | undefined;
         location?: {
             lat?: number | undefined;
             lng?: number | undefined;
@@ -271,7 +271,7 @@ export declare const CreateShopSchema: z.ZodObject<{
         socials?: {
             icon: string;
             url: string;
-        } | undefined;
+        }[] | undefined;
         location?: {
             lat?: number | undefined;
             lng?: number | undefined;
@@ -304,7 +304,7 @@ export declare const CreateShopSchema: z.ZodObject<{
         socials?: {
             icon: string;
             url: string;
-        } | undefined;
+        }[] | undefined;
         location?: {
             lat?: number | undefined;
             lng?: number | undefined;
@@ -357,7 +357,7 @@ export declare const UpdateShopSchema: z.ZodObject<{
     settings: z.ZodOptional<z.ZodOptional<z.ZodObject<{
         website: z.ZodOptional<z.ZodString>;
         contact: z.ZodOptional<z.ZodString>;
-        socials: z.ZodOptional<z.ZodObject<{
+        socials: z.ZodOptional<z.ZodArray<z.ZodObject<{
             icon: z.ZodString;
             url: z.ZodString;
         }, "strip", z.ZodTypeAny, {
@@ -366,7 +366,7 @@ export declare const UpdateShopSchema: z.ZodObject<{
         }, {
             icon: string;
             url: string;
-        }>>;
+        }>, "many">>;
         location: z.ZodOptional<z.ZodObject<{
             lat: z.ZodOptional<z.ZodNumber>;
             lng: z.ZodOptional<z.ZodNumber>;
@@ -398,7 +398,7 @@ export declare const UpdateShopSchema: z.ZodObject<{
         socials?: {
             icon: string;
             url: string;
-        } | undefined;
+        }[] | undefined;
         location?: {
             lat?: number | undefined;
             lng?: number | undefined;
@@ -414,7 +414,7 @@ export declare const UpdateShopSchema: z.ZodObject<{
         socials?: {
             icon: string;
             url: string;
-        } | undefined;
+        }[] | undefined;
         location?: {
             lat?: number | undefined;
             lng?: number | undefined;
@@ -447,7 +447,7 @@ export declare const UpdateShopSchema: z.ZodObject<{
         socials?: {
             icon: string;
             url: string;
-        } | undefined;
+        }[] | undefined;
         location?: {
             lat?: number | undefined;
             lng?: number | undefined;
@@ -480,7 +480,7 @@ export declare const UpdateShopSchema: z.ZodObject<{
         socials?: {
             icon: string;
             url: string;
-        } | undefined;
+        }[] | undefined;
         location?: {
             lat?: number | undefined;
             lng?: number | undefined;
