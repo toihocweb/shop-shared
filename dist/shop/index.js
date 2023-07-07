@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateShopSchema = exports.PaymentInfoSchema = void 0;
+exports.UpdateShopSchema = exports.CreateShopSchema = exports.ShopAddressSchema = exports.PaymentInfoSchema = void 0;
 const zod_1 = require("zod");
 exports.PaymentInfoSchema = zod_1.z.object({
     account: zod_1.z.string(),
@@ -8,18 +8,17 @@ exports.PaymentInfoSchema = zod_1.z.object({
     name: zod_1.z.string(),
     email: zod_1.z.string(),
 });
+exports.ShopAddressSchema = zod_1.z.object({
+    country: zod_1.z.string(),
+    state: zod_1.z.string(),
+    city: zod_1.z.string(),
+    zip: zod_1.z.string(),
+    street_address: zod_1.z.string(),
+});
 exports.CreateShopSchema = zod_1.z.object({
     name: zod_1.z.string().nonempty(),
     description: zod_1.z.string().optional(),
-    address: zod_1.z
-        .object({
-        country: zod_1.z.string(),
-        state: zod_1.z.string(),
-        city: zod_1.z.string(),
-        zip: zod_1.z.string(),
-        street_address: zod_1.z.string(),
-    })
-        .optional(),
+    address: exports.ShopAddressSchema.optional(),
     paymentInfo: exports.PaymentInfoSchema.optional(),
     settings: zod_1.z.object({
         website: zod_1.z.string().optional(),
@@ -43,4 +42,5 @@ exports.CreateShopSchema = zod_1.z.object({
             .optional(),
     }),
 });
+exports.UpdateShopSchema = exports.CreateShopSchema.partial();
 //# sourceMappingURL=index.js.map
