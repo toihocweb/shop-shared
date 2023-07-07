@@ -1,5 +1,5 @@
 import { z } from "zod";
-declare const PaymentInfoSchema: z.ZodObject<{
+export declare const PaymentInfoSchema: z.ZodObject<{
     account: z.ZodString;
     bank: z.ZodString;
     name: z.ZodString;
@@ -17,32 +17,42 @@ declare const PaymentInfoSchema: z.ZodObject<{
 }>;
 export declare const CreateShopSchema: z.ZodObject<{
     name: z.ZodString;
-    slug: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
-    cover_image: z.ZodOptional<z.ZodString>;
-    logo: z.ZodOptional<z.ZodString>;
-    address: z.ZodObject<Pick<{
-        title: z.ZodString;
-        type: z.ZodEnum<[import("src/addresses").AddressType.BILLING, import("src/addresses").AddressType.SHIPPING]>;
-        default: z.ZodDefault<z.ZodBoolean>;
+    address: z.ZodOptional<z.ZodObject<{
         country: z.ZodString;
         state: z.ZodString;
         city: z.ZodString;
-        street_address: z.ZodString;
         zip: z.ZodString;
-    }, "country" | "state" | "city" | "street_address" | "zip">, "strip", z.ZodTypeAny, {
+        street_address: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
         country: string;
         state: string;
         city: string;
-        street_address: string;
         zip: string;
+        street_address: string;
     }, {
         country: string;
         state: string;
         city: string;
-        street_address: string;
         zip: string;
-    }>;
+        street_address: string;
+    }>>;
+    payment: z.ZodOptional<z.ZodObject<{
+        account: z.ZodString;
+        bank: z.ZodString;
+        name: z.ZodString;
+        email: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        account: string;
+        bank: string;
+        name: string;
+        email: string;
+    }, {
+        account: string;
+        bank: string;
+        name: string;
+        email: string;
+    }>>;
     settings: z.ZodObject<{
         website: z.ZodOptional<z.ZodString>;
         contact: z.ZodOptional<z.ZodString>;
@@ -116,14 +126,6 @@ export declare const CreateShopSchema: z.ZodObject<{
     }>;
 }, "strip", z.ZodTypeAny, {
     name: string;
-    slug: string;
-    address: {
-        country: string;
-        state: string;
-        city: string;
-        street_address: string;
-        zip: string;
-    };
     settings: {
         website?: string | undefined;
         contact?: string | undefined;
@@ -142,18 +144,21 @@ export declare const CreateShopSchema: z.ZodObject<{
         } | undefined;
     };
     description?: string | undefined;
-    cover_image?: string | undefined;
-    logo?: string | undefined;
+    address?: {
+        country: string;
+        state: string;
+        city: string;
+        zip: string;
+        street_address: string;
+    } | undefined;
+    payment?: {
+        account: string;
+        bank: string;
+        name: string;
+        email: string;
+    } | undefined;
 }, {
     name: string;
-    slug: string;
-    address: {
-        country: string;
-        state: string;
-        city: string;
-        street_address: string;
-        zip: string;
-    };
     settings: {
         website?: string | undefined;
         contact?: string | undefined;
@@ -172,9 +177,19 @@ export declare const CreateShopSchema: z.ZodObject<{
         } | undefined;
     };
     description?: string | undefined;
-    cover_image?: string | undefined;
-    logo?: string | undefined;
+    address?: {
+        country: string;
+        state: string;
+        city: string;
+        zip: string;
+        street_address: string;
+    } | undefined;
+    payment?: {
+        account: string;
+        bank: string;
+        name: string;
+        email: string;
+    } | undefined;
 }>;
+export type CreateShopDto = z.infer<typeof CreateShopSchema>;
 export type PaymentInfoDto = z.infer<typeof PaymentInfoSchema>;
-export type CreateCategoryDto = z.infer<typeof CreateShopSchema>;
-export {};

@@ -1,27 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateShopSchema = void 0;
-const addresses_1 = require("src/addresses");
+exports.CreateShopSchema = exports.PaymentInfoSchema = void 0;
 const zod_1 = require("zod");
-const PaymentInfoSchema = zod_1.z.object({
-    account: zod_1.z.string().nonempty(),
-    bank: zod_1.z.string().nonempty(),
-    name: zod_1.z.string().nonempty(),
-    email: zod_1.z.string().nonempty(),
+exports.PaymentInfoSchema = zod_1.z.object({
+    account: zod_1.z.string(),
+    bank: zod_1.z.string(),
+    name: zod_1.z.string(),
+    email: zod_1.z.string(),
 });
 exports.CreateShopSchema = zod_1.z.object({
     name: zod_1.z.string().nonempty(),
-    slug: zod_1.z.string().nonempty(),
     description: zod_1.z.string().optional(),
-    cover_image: zod_1.z.string().optional(),
-    logo: zod_1.z.string().optional(),
-    address: addresses_1.CreateAddressSchema.pick({
-        country: true,
-        city: true,
-        state: true,
-        zip: true,
-        street_address: true,
-    }),
+    address: zod_1.z
+        .object({
+        country: zod_1.z.string(),
+        state: zod_1.z.string(),
+        city: zod_1.z.string(),
+        zip: zod_1.z.string(),
+        street_address: zod_1.z.string(),
+    })
+        .optional(),
+    payment: exports.PaymentInfoSchema.optional(),
     settings: zod_1.z.object({
         website: zod_1.z.string().optional(),
         contact: zod_1.z.string().optional(),
