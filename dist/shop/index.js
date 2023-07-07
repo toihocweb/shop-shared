@@ -20,7 +20,7 @@ exports.CreateShopSchema = zod_1.z.object({
         street_address: zod_1.z.string(),
     })
         .optional(),
-    payment: exports.PaymentInfoSchema.optional(),
+    paymentInfo: exports.PaymentInfoSchema.optional(),
     settings: zod_1.z.object({
         website: zod_1.z.string().optional(),
         contact: zod_1.z.string().optional(),

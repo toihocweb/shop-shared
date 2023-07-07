@@ -37,7 +37,7 @@ export declare const CreateShopSchema: z.ZodObject<{
         zip: string;
         street_address: string;
     }>>;
-    payment: z.ZodOptional<z.ZodObject<{
+    paymentInfo: z.ZodOptional<z.ZodObject<{
         account: z.ZodString;
         bank: z.ZodString;
         name: z.ZodString;
@@ -151,7 +151,7 @@ export declare const CreateShopSchema: z.ZodObject<{
         zip: string;
         street_address: string;
     } | undefined;
-    payment?: {
+    paymentInfo?: {
         account: string;
         bank: string;
         name: string;
@@ -184,7 +184,7 @@ export declare const CreateShopSchema: z.ZodObject<{
         zip: string;
         street_address: string;
     } | undefined;
-    payment?: {
+    paymentInfo?: {
         account: string;
         bank: string;
         name: string;
