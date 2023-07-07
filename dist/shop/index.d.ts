@@ -34,6 +34,112 @@ export declare const ShopAddressSchema: z.ZodObject<{
     zip: string;
     street_address: string;
 }>;
+export declare const ShopSocialSchema: z.ZodObject<{
+    icon: z.ZodString;
+    url: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    icon: string;
+    url: string;
+}, {
+    icon: string;
+    url: string;
+}>;
+export declare const ShopLocationSchema: z.ZodObject<{
+    lat: z.ZodOptional<z.ZodNumber>;
+    lng: z.ZodOptional<z.ZodNumber>;
+    city: z.ZodOptional<z.ZodString>;
+    state: z.ZodOptional<z.ZodString>;
+    country: z.ZodOptional<z.ZodString>;
+    zip: z.ZodOptional<z.ZodString>;
+    formattedAddress: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    lat?: number | undefined;
+    lng?: number | undefined;
+    city?: string | undefined;
+    state?: string | undefined;
+    country?: string | undefined;
+    zip?: string | undefined;
+    formattedAddress?: string | undefined;
+}, {
+    lat?: number | undefined;
+    lng?: number | undefined;
+    city?: string | undefined;
+    state?: string | undefined;
+    country?: string | undefined;
+    zip?: string | undefined;
+    formattedAddress?: string | undefined;
+}>;
+export declare const ShopSettingsSchema: z.ZodObject<{
+    website: z.ZodOptional<z.ZodString>;
+    contact: z.ZodOptional<z.ZodString>;
+    socials: z.ZodOptional<z.ZodObject<{
+        icon: z.ZodString;
+        url: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        icon: string;
+        url: string;
+    }, {
+        icon: string;
+        url: string;
+    }>>;
+    location: z.ZodOptional<z.ZodObject<{
+        lat: z.ZodOptional<z.ZodNumber>;
+        lng: z.ZodOptional<z.ZodNumber>;
+        city: z.ZodOptional<z.ZodString>;
+        state: z.ZodOptional<z.ZodString>;
+        country: z.ZodOptional<z.ZodString>;
+        zip: z.ZodOptional<z.ZodString>;
+        formattedAddress: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        lat?: number | undefined;
+        lng?: number | undefined;
+        city?: string | undefined;
+        state?: string | undefined;
+        country?: string | undefined;
+        zip?: string | undefined;
+        formattedAddress?: string | undefined;
+    }, {
+        lat?: number | undefined;
+        lng?: number | undefined;
+        city?: string | undefined;
+        state?: string | undefined;
+        country?: string | undefined;
+        zip?: string | undefined;
+        formattedAddress?: string | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    website?: string | undefined;
+    contact?: string | undefined;
+    socials?: {
+        icon: string;
+        url: string;
+    } | undefined;
+    location?: {
+        lat?: number | undefined;
+        lng?: number | undefined;
+        city?: string | undefined;
+        state?: string | undefined;
+        country?: string | undefined;
+        zip?: string | undefined;
+        formattedAddress?: string | undefined;
+    } | undefined;
+}, {
+    website?: string | undefined;
+    contact?: string | undefined;
+    socials?: {
+        icon: string;
+        url: string;
+    } | undefined;
+    location?: {
+        lat?: number | undefined;
+        lng?: number | undefined;
+        city?: string | undefined;
+        state?: string | undefined;
+        country?: string | undefined;
+        zip?: string | undefined;
+        formattedAddress?: string | undefined;
+    } | undefined;
+}>;
 export declare const CreateShopSchema: z.ZodObject<{
     name: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
@@ -72,19 +178,19 @@ export declare const CreateShopSchema: z.ZodObject<{
         name: string;
         email: string;
     }>>;
-    settings: z.ZodObject<{
+    settings: z.ZodOptional<z.ZodObject<{
         website: z.ZodOptional<z.ZodString>;
         contact: z.ZodOptional<z.ZodString>;
-        socials: z.ZodOptional<z.ZodArray<z.ZodObject<{
-            icon: z.ZodOptional<z.ZodString>;
-            url: z.ZodOptional<z.ZodString>;
+        socials: z.ZodOptional<z.ZodObject<{
+            icon: z.ZodString;
+            url: z.ZodString;
         }, "strip", z.ZodTypeAny, {
-            icon?: string | undefined;
-            url?: string | undefined;
+            icon: string;
+            url: string;
         }, {
-            icon?: string | undefined;
-            url?: string | undefined;
-        }>, "many">>;
+            icon: string;
+            url: string;
+        }>>;
         location: z.ZodOptional<z.ZodObject<{
             lat: z.ZodOptional<z.ZodNumber>;
             lng: z.ZodOptional<z.ZodNumber>;
@@ -114,9 +220,9 @@ export declare const CreateShopSchema: z.ZodObject<{
         website?: string | undefined;
         contact?: string | undefined;
         socials?: {
-            icon?: string | undefined;
-            url?: string | undefined;
-        }[] | undefined;
+            icon: string;
+            url: string;
+        } | undefined;
         location?: {
             lat?: number | undefined;
             lng?: number | undefined;
@@ -130,9 +236,9 @@ export declare const CreateShopSchema: z.ZodObject<{
         website?: string | undefined;
         contact?: string | undefined;
         socials?: {
-            icon?: string | undefined;
-            url?: string | undefined;
-        }[] | undefined;
+            icon: string;
+            url: string;
+        } | undefined;
         location?: {
             lat?: number | undefined;
             lng?: number | undefined;
@@ -142,26 +248,9 @@ export declare const CreateShopSchema: z.ZodObject<{
             zip?: string | undefined;
             formattedAddress?: string | undefined;
         } | undefined;
-    }>;
+    }>>;
 }, "strip", z.ZodTypeAny, {
     name: string;
-    settings: {
-        website?: string | undefined;
-        contact?: string | undefined;
-        socials?: {
-            icon?: string | undefined;
-            url?: string | undefined;
-        }[] | undefined;
-        location?: {
-            lat?: number | undefined;
-            lng?: number | undefined;
-            city?: string | undefined;
-            state?: string | undefined;
-            country?: string | undefined;
-            zip?: string | undefined;
-            formattedAddress?: string | undefined;
-        } | undefined;
-    };
     description?: string | undefined;
     address?: {
         country: string;
@@ -175,26 +264,26 @@ export declare const CreateShopSchema: z.ZodObject<{
         bank: string;
         name: string;
         email: string;
+    } | undefined;
+    settings?: {
+        website?: string | undefined;
+        contact?: string | undefined;
+        socials?: {
+            icon: string;
+            url: string;
+        } | undefined;
+        location?: {
+            lat?: number | undefined;
+            lng?: number | undefined;
+            city?: string | undefined;
+            state?: string | undefined;
+            country?: string | undefined;
+            zip?: string | undefined;
+            formattedAddress?: string | undefined;
+        } | undefined;
     } | undefined;
 }, {
     name: string;
-    settings: {
-        website?: string | undefined;
-        contact?: string | undefined;
-        socials?: {
-            icon?: string | undefined;
-            url?: string | undefined;
-        }[] | undefined;
-        location?: {
-            lat?: number | undefined;
-            lng?: number | undefined;
-            city?: string | undefined;
-            state?: string | undefined;
-            country?: string | undefined;
-            zip?: string | undefined;
-            formattedAddress?: string | undefined;
-        } | undefined;
-    };
     description?: string | undefined;
     address?: {
         country: string;
@@ -208,6 +297,23 @@ export declare const CreateShopSchema: z.ZodObject<{
         bank: string;
         name: string;
         email: string;
+    } | undefined;
+    settings?: {
+        website?: string | undefined;
+        contact?: string | undefined;
+        socials?: {
+            icon: string;
+            url: string;
+        } | undefined;
+        location?: {
+            lat?: number | undefined;
+            lng?: number | undefined;
+            city?: string | undefined;
+            state?: string | undefined;
+            country?: string | undefined;
+            zip?: string | undefined;
+            formattedAddress?: string | undefined;
+        } | undefined;
     } | undefined;
 }>;
 export declare const UpdateShopSchema: z.ZodObject<{
@@ -248,19 +354,19 @@ export declare const UpdateShopSchema: z.ZodObject<{
         name: string;
         email: string;
     }>>>;
-    settings: z.ZodOptional<z.ZodObject<{
+    settings: z.ZodOptional<z.ZodOptional<z.ZodObject<{
         website: z.ZodOptional<z.ZodString>;
         contact: z.ZodOptional<z.ZodString>;
-        socials: z.ZodOptional<z.ZodArray<z.ZodObject<{
-            icon: z.ZodOptional<z.ZodString>;
-            url: z.ZodOptional<z.ZodString>;
+        socials: z.ZodOptional<z.ZodObject<{
+            icon: z.ZodString;
+            url: z.ZodString;
         }, "strip", z.ZodTypeAny, {
-            icon?: string | undefined;
-            url?: string | undefined;
+            icon: string;
+            url: string;
         }, {
-            icon?: string | undefined;
-            url?: string | undefined;
-        }>, "many">>;
+            icon: string;
+            url: string;
+        }>>;
         location: z.ZodOptional<z.ZodObject<{
             lat: z.ZodOptional<z.ZodNumber>;
             lng: z.ZodOptional<z.ZodNumber>;
@@ -290,9 +396,9 @@ export declare const UpdateShopSchema: z.ZodObject<{
         website?: string | undefined;
         contact?: string | undefined;
         socials?: {
-            icon?: string | undefined;
-            url?: string | undefined;
-        }[] | undefined;
+            icon: string;
+            url: string;
+        } | undefined;
         location?: {
             lat?: number | undefined;
             lng?: number | undefined;
@@ -306,9 +412,9 @@ export declare const UpdateShopSchema: z.ZodObject<{
         website?: string | undefined;
         contact?: string | undefined;
         socials?: {
-            icon?: string | undefined;
-            url?: string | undefined;
-        }[] | undefined;
+            icon: string;
+            url: string;
+        } | undefined;
         location?: {
             lat?: number | undefined;
             lng?: number | undefined;
@@ -318,7 +424,7 @@ export declare const UpdateShopSchema: z.ZodObject<{
             zip?: string | undefined;
             formattedAddress?: string | undefined;
         } | undefined;
-    }>>;
+    }>>>;
 }, "strip", z.ZodTypeAny, {
     name?: string | undefined;
     description?: string | undefined;
@@ -339,9 +445,9 @@ export declare const UpdateShopSchema: z.ZodObject<{
         website?: string | undefined;
         contact?: string | undefined;
         socials?: {
-            icon?: string | undefined;
-            url?: string | undefined;
-        }[] | undefined;
+            icon: string;
+            url: string;
+        } | undefined;
         location?: {
             lat?: number | undefined;
             lng?: number | undefined;
@@ -372,9 +478,9 @@ export declare const UpdateShopSchema: z.ZodObject<{
         website?: string | undefined;
         contact?: string | undefined;
         socials?: {
-            icon?: string | undefined;
-            url?: string | undefined;
-        }[] | undefined;
+            icon: string;
+            url: string;
+        } | undefined;
         location?: {
             lat?: number | undefined;
             lng?: number | undefined;
@@ -390,3 +496,5 @@ export type CreateShopDto = z.infer<typeof CreateShopSchema>;
 export type UpdateShopDto = z.infer<typeof UpdateShopSchema>;
 export type PaymentInfoDto = z.infer<typeof PaymentInfoSchema>;
 export type ShopAddressDto = z.infer<typeof ShopAddressSchema>;
+export type ShopSocialDto = z.infer<typeof ShopSocialSchema>;
+export type ShopLocationDto = z.infer<typeof ShopLocationSchema>;
