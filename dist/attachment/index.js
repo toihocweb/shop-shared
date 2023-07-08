@@ -13,9 +13,11 @@ exports.AttachmentFieldEnum = {
     TAG_IMAGE: "tag.image",
     PRODUCT_IMAGE: "product.image",
     PRODUCT_GALLERY: "product.gallery",
+    COUPON_IMAGE: "coupon.image",
 };
 exports.AttachmentSchema = zod_1.z.object({
     attachment: zod_1.z.any(),
     field: zod_1.z.nativeEnum(exports.AttachmentFieldEnum),
+    id: zod_1.z.string().optional(),
 });
 //# sourceMappingURL=index.js.map
