@@ -14,6 +14,8 @@ exports.AttachmentFieldEnum = {
     PRODUCT_IMAGE: "product.image",
     PRODUCT_GALLERY: "product.gallery",
     COUPON_IMAGE: "coupon.image",
+    SHOP_COVER: "shop.cover",
+    SHOP_LOGO: "shop.logo",
 };
 exports.AttachmentSchema = zod_1.z.object({
     attachment: zod_1.z.any(),

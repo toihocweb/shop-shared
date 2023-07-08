@@ -11,6 +11,8 @@ export declare const AttachmentFieldEnum: {
     readonly PRODUCT_IMAGE: "product.image";
     readonly PRODUCT_GALLERY: "product.gallery";
     readonly COUPON_IMAGE: "coupon.image";
+    readonly SHOP_COVER: "shop.cover";
+    readonly SHOP_LOGO: "shop.logo";
 };
 export type AttachmentField = (typeof AttachmentFieldEnum)[keyof typeof AttachmentFieldEnum];
 export declare const AttachmentSchema: z.ZodObject<{
@@ -27,14 +29,16 @@ export declare const AttachmentSchema: z.ZodObject<{
         readonly PRODUCT_IMAGE: "product.image";
         readonly PRODUCT_GALLERY: "product.gallery";
         readonly COUPON_IMAGE: "coupon.image";
+        readonly SHOP_COVER: "shop.cover";
+        readonly SHOP_LOGO: "shop.logo";
     }>;
     id: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
-    field: "user.avatar" | "category.image" | "type.image" | "banner.image" | "promotion.slider" | "menu.image" | "cover.image" | "tag.image" | "product.image" | "product.gallery" | "coupon.image";
+    field: "user.avatar" | "category.image" | "type.image" | "banner.image" | "promotion.slider" | "menu.image" | "cover.image" | "tag.image" | "product.image" | "product.gallery" | "coupon.image" | "shop.cover" | "shop.logo";
     attachment?: any;
     id?: string | undefined;
 }, {
-    field: "user.avatar" | "category.image" | "type.image" | "banner.image" | "promotion.slider" | "menu.image" | "cover.image" | "tag.image" | "product.image" | "product.gallery" | "coupon.image";
+    field: "user.avatar" | "category.image" | "type.image" | "banner.image" | "promotion.slider" | "menu.image" | "cover.image" | "tag.image" | "product.image" | "product.gallery" | "coupon.image" | "shop.cover" | "shop.logo";
     attachment?: any;
     id?: string | undefined;
 }>;
