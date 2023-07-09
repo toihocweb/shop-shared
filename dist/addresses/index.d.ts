@@ -5,8 +5,8 @@ export declare enum AddressType {
 }
 export declare const CreateAddressSchema: z.ZodObject<{
     title: z.ZodString;
-    type: z.ZodEnum<[AddressType.BILLING, AddressType.SHIPPING]>;
-    default: z.ZodDefault<z.ZodBoolean>;
+    type: z.ZodNativeEnum<typeof AddressType>;
+    default: z.ZodBoolean;
     country: z.ZodString;
     state: z.ZodString;
     city: z.ZodString;
@@ -24,18 +24,18 @@ export declare const CreateAddressSchema: z.ZodObject<{
 }, {
     title: string;
     type: AddressType;
+    default: boolean;
     country: string;
     state: string;
     city: string;
     street_address: string;
     zip: string;
-    default?: boolean | undefined;
 }>;
 export type CreateAddressDto = z.infer<typeof CreateAddressSchema>;
 export declare const UpdateAddressSchema: z.ZodObject<{
     title: z.ZodOptional<z.ZodString>;
-    type: z.ZodOptional<z.ZodEnum<[AddressType.BILLING, AddressType.SHIPPING]>>;
-    default: z.ZodOptional<z.ZodDefault<z.ZodBoolean>>;
+    type: z.ZodOptional<z.ZodNativeEnum<typeof AddressType>>;
+    default: z.ZodOptional<z.ZodBoolean>;
     country: z.ZodOptional<z.ZodString>;
     state: z.ZodOptional<z.ZodString>;
     city: z.ZodOptional<z.ZodString>;
