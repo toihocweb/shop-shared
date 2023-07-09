@@ -1,10 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateCouponSchema = void 0;
+exports.CreateCouponSchema = exports.CouponType = void 0;
 const zod_1 = require("zod");
+var CouponType;
+(function (CouponType) {
+    CouponType["FIXED_COUPON"] = "fixed";
+    CouponType["PERCENTAGE_COUPON"] = "percentage";
+    CouponType["FREE_SHIPPING_COUPON"] = "free_shipping";
+})(CouponType || (exports.CouponType = CouponType = {}));
 exports.CreateCouponSchema = zod_1.z.object({
     code: zod_1.z.string().nonempty(),
-    type: zod_1.z.string().nonempty(),
+    type: zod_1.z.nativeEnum(CouponType),
     amount: zod_1.z.number(),
     description: zod_1.z.string(),
     expire_at: zod_1.z.string(),
