@@ -3,21 +3,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UpdateShopSchema = exports.CreateShopSchema = exports.ShopSettingsSchema = exports.ShopLocationSchema = exports.ShopSocialSchema = exports.ShopAddressSchema = exports.PaymentInfoSchema = void 0;
 const zod_1 = require("zod");
 exports.PaymentInfoSchema = zod_1.z.object({
-    account: zod_1.z.string(),
-    bank: zod_1.z.string(),
-    name: zod_1.z.string(),
-    email: zod_1.z.string(),
+    account: zod_1.z.string().optional(),
+    bank: zod_1.z.string().optional(),
+    name: zod_1.z.string().optional(),
+    email: zod_1.z.string().optional(),
 });
 exports.ShopAddressSchema = zod_1.z.object({
-    country: zod_1.z.string(),
-    state: zod_1.z.string(),
-    city: zod_1.z.string(),
-    zip: zod_1.z.string(),
-    street_address: zod_1.z.string(),
+    country: zod_1.z.string().optional(),
+    state: zod_1.z.string().optional(),
+    city: zod_1.z.string().optional(),
+    zip: zod_1.z.string().optional(),
+    street_address: zod_1.z.string().optional(),
 });
 exports.ShopSocialSchema = zod_1.z.object({
-    icon: zod_1.z.string(),
-    url: zod_1.z.string(),
+    icon: zod_1.z.string().optional(),
+    url: zod_1.z.string().optional(),
 });
 exports.ShopLocationSchema = zod_1.z.object({
     lat: zod_1.z.number().optional(),
@@ -40,6 +40,7 @@ exports.CreateShopSchema = zod_1.z.object({
     address: exports.ShopAddressSchema.optional(),
     paymentInfo: exports.PaymentInfoSchema.optional(),
     settings: exports.ShopSettingsSchema.optional(),
+    owner: zod_1.z.number(),
 });
 exports.UpdateShopSchema = exports.CreateShopSchema.partial();
 //# sourceMappingURL=index.js.map
