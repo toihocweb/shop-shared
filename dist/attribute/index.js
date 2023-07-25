@@ -8,7 +8,7 @@ exports.AttributeValueSchema = zod_1.z.object({
 });
 exports.AttributeSchema = zod_1.z.object({
     name: zod_1.z.string().nonempty(),
-    values: zod_1.z.array(exports.AttributeValueSchema),
+    values: zod_1.z.array(exports.AttributeValueSchema).nonempty(),
 });
 exports.AttributeUpdateSchema = exports.AttributeSchema.partial();
 //# sourceMappingURL=index.js.map

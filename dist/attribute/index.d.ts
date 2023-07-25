@@ -20,18 +20,24 @@ export declare const AttributeSchema: z.ZodObject<{
     }, {
         value: string;
         meta?: string | undefined;
-    }>, "many">;
+    }>, "atleastone">;
 }, "strip", z.ZodTypeAny, {
-    values: {
+    values: [{
         value: string;
         meta?: string | undefined;
-    }[];
+    }, ...{
+        value: string;
+        meta?: string | undefined;
+    }[]];
     name: string;
 }, {
-    values: {
+    values: [{
         value: string;
         meta?: string | undefined;
-    }[];
+    }, ...{
+        value: string;
+        meta?: string | undefined;
+    }[]];
     name: string;
 }>;
 export declare const AttributeUpdateSchema: z.ZodObject<{
@@ -45,19 +51,25 @@ export declare const AttributeUpdateSchema: z.ZodObject<{
     }, {
         value: string;
         meta?: string | undefined;
-    }>, "many">>;
+    }>, "atleastone">>;
 }, "strip", z.ZodTypeAny, {
     name?: string | undefined;
-    values?: {
+    values?: [{
         value: string;
         meta?: string | undefined;
-    }[] | undefined;
+    }, ...{
+        value: string;
+        meta?: string | undefined;
+    }[]] | undefined;
 }, {
     name?: string | undefined;
-    values?: {
+    values?: [{
         value: string;
         meta?: string | undefined;
-    }[] | undefined;
+    }, ...{
+        value: string;
+        meta?: string | undefined;
+    }[]] | undefined;
 }>;
 export type AttributeValueDto = z.infer<typeof AttributeValueSchema>;
 export type AttributeDto = z.infer<typeof AttributeSchema>;
